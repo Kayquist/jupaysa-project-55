@@ -107,7 +107,7 @@ const ExchangeCalculator = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   You send
                 </label>
-                <div className="flex space-x-3">
+                <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
                   <input
                     type="number"
                     value={fromAmount}
@@ -118,11 +118,11 @@ const ExchangeCalculator = () => {
                   <select
                     value={fromCurrency}
                     onChange={(e) => setFromCurrency(e.target.value)}
-                    className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 min-w-[120px]"
+                    className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:min-w-[120px] w-full sm:w-auto"
                   >
                     {currencies.map((currency) => (
                       <option key={currency.code} value={currency.code}>
-                        {currency.code} - {currency.name}
+                        {currency.code}
                       </option>
                     ))}
                   </select>
@@ -141,7 +141,7 @@ const ExchangeCalculator = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Recipient gets
                 </label>
-                <div className="flex space-x-3">
+                <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
                   <input
                     type="text"
                     value={calculateAmount()}
@@ -151,11 +151,11 @@ const ExchangeCalculator = () => {
                   <select
                     value={toCurrency}
                     onChange={(e) => setToCurrency(e.target.value)}
-                    className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 min-w-[120px]"
+                    className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:min-w-[120px] w-full sm:w-auto"
                   >
                     {currencies.map((currency) => (
                       <option key={currency.code} value={currency.code}>
-                        {currency.code} - {currency.name}
+                        {currency.code}
                       </option>
                     ))}
                   </select>
