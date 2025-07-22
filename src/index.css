@@ -13,8 +13,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,17 +22,51 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 50% 85%;
+    --accent-foreground: 142 76% 36%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 142 76% 36%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Custom color palette */
+    --primary-50: 142 50% 95%;
+    --primary-100: 142 50% 85%;
+    --primary-500: 142 76% 36%;
+    --primary-600: 142 76% 30%;
+    --primary-700: 142 76% 25%;
+    
+    --blue-50: 217 91% 96%;
+    --blue-500: 217 91% 60%;
+    --blue-600: 217 91% 50%;
+    
+    --purple-50: 270 50% 95%;
+    --purple-500: 270 50% 50%;
+    --purple-600: 270 50% 40%;
+    
+    --orange-50: 25 95% 95%;
+    --orange-500: 25 95% 53%;
+    --orange-600: 25 95% 45%;
+    
+    --yellow-400: 45 93% 47%;
+    --yellow-500: 45 93% 47%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-500)), hsl(var(--yellow-500)));
+    --gradient-blue: linear-gradient(135deg, hsl(var(--blue-500)), hsl(var(--purple-500)));
+    --gradient-orange: linear-gradient(135deg, hsl(var(--orange-500)), hsl(var(--yellow-500)));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary-500) / 0.3);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -97,5 +131,66 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Mobile-first responsive utilities */
+  .container-responsive {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-responsive {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+  
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  /* Custom animation classes */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  
+  .fade-in {
+    @apply animate-in fade-in duration-700;
+  }
+  
+  .slide-up {
+    @apply animate-in slide-in-from-bottom-4 duration-700;
+  }
+  
+  /* Custom gradient backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-blue {
+    background: var(--gradient-blue);
+  }
+  
+  .gradient-orange {
+    background: var(--gradient-orange);
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Better focus states for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 }
